@@ -34,8 +34,8 @@ function displayRepositories() {
     repos.map(r =>
       `<li>
         <a href="${r.html_url}">${r.owner.login}/${r.name}</a>
-        <a href="#" onclick="getCommits({dataset: {username: '${r.owner.login}', repostory: '${r.name}'}})">Commits</a>
-        <a href="#" onclick="getBranches({dataset: {username: '${r.owner.login}', repostory: '${r.name}'}})">Branches</a>
+        <a href="#" onclick="getCommits({dataset: {username: '${r.owner.login}', repository: '${r.name}'}})">Commits</a>
+        <a href="#" onclick="getBranches({dataset: {username: '${r.owner.login}', repository: '${r.name}'}})">Branches</a>
       </li>`
     ).join('')
   }</ul>`;
@@ -43,7 +43,6 @@ function displayRepositories() {
 }
 
 function displayCommits() {
-  console.log(JSON.parse(this.responseText)[0].url.split('/')[4])
   const commits = JSON.parse(this.responseText);
   const commitsHtml = `<ul>${commits[0].url.split('/')[4]} ${
     commits.map(r =>
