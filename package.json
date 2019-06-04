@@ -3,8 +3,14 @@
   "version": "0.1.0",
   "description": "Practice getting data from the GitHub API using XHR",
   "main": "index.js",
+  
+  "watch": {
+    "test": "*"
+  },
+
   "scripts": {
-    "test": "mocha -R mocha-multi --reporter-options nyan=-,json=.results.json"
+    "watch": "npm-watch test",
+    "test": "mocha -R mocha-multi --reporter-options spec=-,json=.results.json"
   },
   "repository": {
     "type": "git",
